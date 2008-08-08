@@ -18,6 +18,24 @@ module AggregationTags
     tag.expand
   end
   
+  desc %{
+    Sets the scope to the individual aggregated page allowing you to
+    iterate through each of the listed urls.
+    
+    *Usage*:
+    
+    <pre><code><r:aggregate:each urls="/section1; /section2; /section3"> ... </r:aggregate:each></code></pre>
+  }
+  tag "aggregate:each" do |tag|
+    aggregates = []
+    tag.locals.aggregated_pages = tag.locals.parent_ids.map {|p| Page.find(p)}
+    tag.locals.aggregated_pages.each do |aggregate_page|
+      tag.locals.page = aggregate_page
+      aggregates << tag.expand
+    end
+    aggregates
+  end
+  
   tag "aggregate:children" do |tag|
     tag.expand
   end
