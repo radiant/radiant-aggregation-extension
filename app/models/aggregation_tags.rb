@@ -52,7 +52,10 @@ module AggregationTags
   }  
   tag "aggregate:children:count" do |tag|
     options = aggregate_children(tag)
-    Page.count(options)
+    if ActiveRecord::Base.connection.adapter_name.downcase == 'postgresql'
+       options[:group] = Page.columns.map {|c| c.name}.join(', ')
+    end
+    Page.find(:all, options).size
   end
   desc %{
     Renders the contained block for each child of the aggregated pages.  Accepts the
