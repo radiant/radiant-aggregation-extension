@@ -41,4 +41,10 @@ describe Page do
       pages(:home).should render('<r:aggregate urls="/parent/child; /first; /assorted;"><r:each><r:title /> </r:each></r:aggregate>').as('Child First Assorted ')
     end
   end
+  
+  describe "<r:aggregate:each:aggregated_page>" do
+    it "should display it's contents in the scope of the individually aggregated_page" do
+      pages(:home).should render('<r:aggregate urls="/parent; /news; /assorted;"><r:each:aggregated_page><r:children:each><r:title /> </r:children:each></r:each:aggregated_page></r:aggregate>').as('Child Child 2 Child 3 Article Article 2 Article 3 Article 4 a b c d e f g h i j ')
+    end
+  end
 end

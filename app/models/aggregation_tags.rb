@@ -36,6 +36,29 @@ module AggregationTags
     aggregates
   end
   
+  tag "aggregate:each:aggregated_page" do |tag|
+    tag.locals.children = tag.locals.page.children
+    tag.expand
+  end
+  
+  tag "aggregate:each:children" do |tag|
+    tag.locals.children = tag.locals.page.children
+    tag.expand
+  end
+  
+  tag "aggregate:each:children:each" do |tag|
+    options = children_find_options(tag)
+    result = []
+    children = tag.locals.children
+    tag.locals.previous_headers = {}
+    children.find(:all, options).each do |item|
+      tag.locals.child = item
+      tag.locals.page = item
+      result << tag.expand
+    end
+    result
+  end
+  
   tag "aggregate:children" do |tag|
     tag.expand
   end
