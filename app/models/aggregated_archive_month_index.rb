@@ -1,0 +1,3 @@
+class AggregatedArchiveMonthIndex < Page
+  
+end
