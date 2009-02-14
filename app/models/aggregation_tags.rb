@@ -36,11 +36,6 @@ module AggregationTags
     aggregates
   end
   
-  tag "aggregate:each:aggregated_page" do |tag|
-    tag.locals.children = tag.locals.page.children
-    tag.expand
-  end
-  
   tag "aggregate:each:children" do |tag|
     tag.locals.children = tag.locals.page.children
     tag.expand

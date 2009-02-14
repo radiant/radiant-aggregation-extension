@@ -4,6 +4,7 @@ class AggregationExtension < Radiant::Extension
   url "http://seancribbs.com"
   
   def activate
+    AggregatedArchiveMonth
     Page.send :include, AggregationTags
   end
     
