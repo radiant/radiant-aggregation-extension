@@ -24,7 +24,7 @@ class AggregatedArchiveMonth < Page
     start = Time.local(year, month)
     finish = start.next_month
     parent_ids = tag.locals.parent_ids || [parent_id] || [Page.find_by_url('/').id]
-    tag.locals.children = Page.find(:all,:conditions => ["published_at >= ? and published_at < ? and parent_id IN (?)",start,finish,parent_ids])
+    tag.locals.children = Page.find(:all,:conditions => ["published_at >= ? and published_at < ? and parent_id IN (?) and status_id = ?",start,finish,parent_ids,100])
     tag.expand
   end
   

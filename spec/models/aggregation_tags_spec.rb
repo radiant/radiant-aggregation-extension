@@ -34,6 +34,9 @@ describe Page do
     it "should order the children by the given 'order' attribute when used with 'by'" do
       pages(:home).should render('<r:aggregate urls="/assorted; /news"><r:children:each by="slug" order="desc"><r:slug /> </r:children:each></r:aggregate>').as('j i h g f e d c b article-4 article-3 article-2 article a ')
     end
+    it "should limit the number of results with the given 'limit' attribute" do
+      pages(:home).should render('<r:aggregate urls="/assorted; /news"><r:children:each by="slug" order="desc" limit="3"><r:slug /> </r:children:each></r:aggregate>').as('j i h g f e d c b article-4 article-3 article-2 article a ')
+    end
   end
   
   describe "<r:aggregate:each>" do
