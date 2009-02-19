@@ -103,6 +103,30 @@ module AggregationTags
   end
   
   desc %{
+    Renders the contained block for each child of the aggregated pages 
+    for the current index.  Accepts the same options as the plain 
+    @<r:children:each />@.
+
+    *Usage*:
+    
+    <pre><code><r:aggregate urls="/section1; /section2; /section3">
+      <r:archive:children:each>
+        ...
+      </r:archive:children:each>
+    </r:aggregate></code></pre>
+  }
+  tag "aggregate:archive:children:each" do |tag|
+    tag.locals.previous_headers = {}
+    output = ''
+    tag.locals.children.each do |child|
+      tag.locals.page = child
+      tag.locals.child = child
+      output << tag.expand
+    end
+    return output
+  end
+  
+  desc %{
     Renders the first child of the aggregated pages.  Accepts the
     same options as @<r:children:each />@.
 
