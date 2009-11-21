@@ -17,7 +17,7 @@ class AggregatedArchiveYear < Page
       that match the specific year which the index page is rendering.
       
       *Usage*:
-       <pre><code><r:aggregate:archive:children>...</r:aggregate:archive:children></code></pre>
+       <pre><code><r:aggregate urls="/section1; /section2; /section3"><r:archive:children>...</r:archive:children></r:aggregate></code></pre>
   }
   tag "aggregate:archive:children" do |tag|
     year = $1 if request_uri =~ %r{/(\d{4})/?$}

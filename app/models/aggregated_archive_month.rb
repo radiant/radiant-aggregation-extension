@@ -17,7 +17,7 @@ class AggregatedArchiveMonth < Page
       that match the specific month which the index page is rendering.
       
       *Usage*:
-       <pre><code><r:aggregate:archive:children>...</r:aggregate:archive:children></code></pre>
+       <pre><code><r:aggregate urls="/section1; /section2; /section3"><r:archive:children>...</r:archive:children></r:aggregate></code></pre>
   }
   tag "aggregate:archive:children" do |tag|
     year, month = $1, $2 if request_uri =~ %r{/(\d{4})/(\d{2})/?$}

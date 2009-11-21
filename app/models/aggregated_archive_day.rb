@@ -17,7 +17,7 @@ class AggregatedArchiveDay < Page
       that match the specific day which the index page is rendering.
       
       *Usage*:
-       <pre><code><r:aggregate:archive:children>...</r:aggregate:archive:children></code></pre>
+       <pre><code><r:aggregate urls="/section1; /section2; /section3"><r:archive:children>...</r:archive:children></r:aggregate></code></pre>
   }
   tag "aggregate:archive:children" do |tag|
     year, month, day = $1, $2, $3 if request_uri =~ %r{/(\d{4})/(\d{2})/(\d{2})/?$}
