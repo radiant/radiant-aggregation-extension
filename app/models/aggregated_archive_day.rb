@@ -1,10 +1,10 @@
 class AggregatedArchiveDay < Page
   
   description %{
-    To create a month index for an archive, create a child page for the
+    To create a day index for an archive, create a child page for the
     archive and assign the "Aggregated Archive Day" page type to it.
     
-    A month index page makes following tags available to you:
+    A day index page makes following tags available to you:
     
     <r:archive:children>...</r:archive:children>
       Grants access to a subset of the children of the archive page
@@ -14,7 +14,7 @@ class AggregatedArchiveDay < Page
   include ArchiveIndexTagsAndMethods
   desc %{
       Grants access to a subset of the children of the aggregated pages
-      that match the specific month which the index page is rendering.
+      that match the specific day which the index page is rendering.
       
       *Usage*:
        <pre><code><r:aggregate:archive:children>...</r:aggregate:archive:children></code></pre>

@@ -1,6 +1,7 @@
 = Aggregation
 
-Provides tags to aggregate the children of multiple pages.
+Provides tags to aggregate the children of multiple pages as well as page types
+to create aggregated archives.
 
 -- by Sean Cribbs
 February 17, 2007
