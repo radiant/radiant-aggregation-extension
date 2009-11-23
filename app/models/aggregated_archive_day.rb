@@ -22,7 +22,7 @@ class AggregatedArchiveDay < Page
   tag "aggregate:archive:children" do |tag|
     year, month, day = $1, $2, $3 if request_uri =~ %r{/(\d{4})/(\d{2})/(\d{2})/?$}
     start = Time.local(year, month, day)
-    finish = start.next_day
+    finish = start.tomorrow
     parent_ids = tag.locals.parent_ids || [parent_id] || [Page.find_by_url('/').id]
     tag.locals.children = Page.find(:all,:conditions => ["published_at >= ? and published_at < ? and parent_id IN (?) and status_id = ? and virtual = ?",start,finish,parent_ids,100,false])
     tag.expand
