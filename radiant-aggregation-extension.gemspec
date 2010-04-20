@@ -19,6 +19,7 @@ to create aggregated archives.}
   ]
   s.files = [
     ".gitignore",
+     "LICENSE",
      "README",
      "Rakefile",
      "VERSION",
@@ -30,6 +31,7 @@ to create aggregated archives.}
      "lib/aggregation_tags.rb",
      "lib/radiant-aggregation-extension.rb",
      "lib/tasks/aggregation_extension_tasks.rake",
+     "radiant-aggregation-extension.gemspec",
      "spec/models/aggregation_tags_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"
